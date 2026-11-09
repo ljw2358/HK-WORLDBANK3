@@ -478,7 +478,7 @@
             gap: 4px;
         }
 
-        /* Fixed Bottom Navigation Bar */
+        /* Fixed Bottom Navigation Bar (5탭: 홈, 거래·연동망, ASI 삐니, 네비게이터, 전체메뉴) */
         .bottom-nav {
             position: absolute;
             bottom: 0;
@@ -489,7 +489,7 @@
             backdrop-filter: blur(10px);
             border-top: 1px solid var(--border-color);
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             z-index: 100;
         }
 
@@ -503,7 +503,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             transition: color 0.2s;
         }
@@ -564,7 +564,7 @@
                         <div class="menu-icon">💱</div>
                         <div class="menu-text">
                             <h3 id="m2Title">사고 팔고 예금하기</h3>
-                            <p id="m2Sub">10대 분산 연동망 (100대 프로세스)</p>
+                            <p id="m2Sub">10대 분산 연동망 (중도해지 규정 포함)</p>
                         </div>
                     </div>
                     <div class="menu-arrow">›</div>
@@ -698,9 +698,23 @@
             </div>
         </div>
 
+        <!-- Tab 7: 전체 메뉴 (햄버거 메뉴 뷰) -->
+        <div id="tab-menu" class="tab-content">
+            <button class="back-btn" onclick="switchTab('home')">← <span id="btBack6">메인으로 돌아가기</span></button>
+            <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;">☰ 전체 메뉴 (HK Ecosystem Hub)</div>
+            <div class="main-menu-grid">
+                <div class="menu-card" onclick="switchTab('home')"><div class="menu-info"><div class="menu-icon">🏠</div><div class="menu-text"><h3>통합 홈</h3><p>메인 대시보드로 이동</p></div></div><div class="menu-arrow">›</div></div>
+                <div class="menu-card" onclick="switchTab('dashboard')"><div class="menu-info"><div class="menu-icon">📊</div><div class="menu-text"><h3>자산 대시보드</h3><p>실시간 보유 자산 및 Pi 관리</p></div></div><div class="menu-arrow">›</div></div>
+                <div class="menu-card" onclick="switchTab('trading')"><div class="menu-info"><div class="menu-icon">💱</div><div class="menu-text"><h3>10대 분산 연동망</h3><p>거래 및 예치 볼트 실행</p></div></div><div class="menu-arrow">›</div></div>
+                <div class="menu-card" onclick="switchTab('support')"><div class="menu-info"><div class="menu-icon">🤖</div><div class="menu-text"><h3>ASI 삐니 비서</h3><p>1:1 AI 스마트 케어 및 KYC/KYB</p></div></div><div class="menu-arrow">›</div></div>
+                <div class="menu-card" onclick="switchTab('nav')"><div class="menu-info"><div class="menu-icon">🧭</div><div class="menu-text"><h3>네비게이터 허브</h3><p>백서, FAQ, 3대 정책, 21개국법안</p></div></div><div class="menu-arrow">›</div></div>
+                <div class="menu-card" onclick="switchTab('media')"><div class="menu-info"><div class="menu-icon">📺</div><div class="menu-text"><h3>유튜브 & 틱톡</h3><p>라이브 방송 및 숏폼 채널</p></div></div><div class="menu-arrow">›</div></div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- 중도 해지 규정이 포함된 전용 팝업 모달 창 -->
+    <!-- 팝업 모달 창 -->
     <div class="modal-overlay" id="exactModal" onclick="if(event.target === this) closePopupModal()">
         <div class="modal-card">
             <div class="modal-header">
@@ -715,7 +729,7 @@
         </div>
     </div>
 
-    <!-- Fixed Bottom Navigation Bar -->
+    <!-- Fixed Bottom Navigation Bar (하단 5탭: 홈, 거래·연동망, ASI 삐니, 네비게이터, 전체메뉴 삼선) -->
     <nav class="bottom-nav">
         <button class="nav-item active" onclick="switchTab('home')" id="nav-home">
             <span class="nav-icon">🏠</span>
@@ -732,6 +746,10 @@
         <button class="nav-item" onclick="switchTab('nav')" id="nav-nav">
             <span class="nav-icon">🧭</span>
             <span id="nNav">네비게이터</span>
+        </button>
+        <button class="nav-item" onclick="switchTab('menu')" id="nav-menu">
+            <span class="nav-icon">☰</span>
+            <span id="nMenu">전체메뉴</span>
         </button>
     </nav>
 </div>
@@ -758,8 +776,8 @@
             sendBtnText: "전송",
             navHubTitle: "🧭 HK 네비게이터 허브",
             mediaTitle: "📺 유튜브와 틱톡 미디어",
-            nHome: "홈", nTrading: "거래·연동망", nSupport: "ASI 삐니", nNav: "네비게이터",
-            btBack1: "메인으로 돌아가기", btBack2: "메인으로 돌아가기", btBack3: "메인으로 돌아가기", btBack4: "메인으로 돌아가기", btBack5: "메인으로 돌아가기"
+            nHome: "홈", nTrading: "거래·연동망", nSupport: "ASI 삐니", nNav: "네비게이터", nMenu: "전체메뉴",
+            btBack1: "메인으로 돌아가기", btBack2: "메인으로 돌아가기", btBack3: "메인으로 돌아가기", btBack4: "메인으로 돌아가기", btBack5: "메인으로 돌아가기", btBack6: "메인으로 돌아가기"
         },
         en: {
             brand: "HK WORLDBANK PLATFORM",
@@ -780,8 +798,8 @@
             sendBtnText: "Send",
             navHubTitle: "🧭 HK Navigator Hub",
             mediaTitle: "📺 YouTube & TikTok Media",
-            nHome: "Home", nTrading: "Trading", nSupport: "ASI Beeny", nNav: "Navigator",
-            btBack1: "Back to Main", btBack2: "Back to Main", btBack3: "Back to Main", btBack4: "Back to Main", btBack5: "Back to Main"
+            nHome: "Home", nTrading: "Trading", nSupport: "ASI Beeny", nNav: "Navigator", nMenu: "Menu",
+            btBack1: "Back to Main", btBack2: "Back to Main", btBack3: "Back to Main", btBack4: "Back to Main", btBack5: "Back to Main", btBack6: "Back to Main"
         },
         zh: {
             brand: "HK WORLDBANK PLATFORM",
@@ -802,15 +820,15 @@
             sendBtnText: "发送",
             navHubTitle: "🧭 HK 导航器中心",
             mediaTitle: "📺 YouTube 与 TikTok 媒体",
-            nHome: "首页", nTrading: "交易网络", nSupport: "ASI 碧妮", nNav: "导航器",
-            btBack1: "返回主页", btBack2: "返回主页", btBack3: "返回主页", btBack4: "返回主页", btBack5: "返回主页"
+            nHome: "首页", nTrading: "交易网络", nSupport: "ASI 碧妮", nNav: "导航器", nMenu: "全菜单",
+            btBack1: "返回主页", btBack2: "返回主页", btBack3: "返回主页", btBack4: "返回主页", btBack5: "返回主页", btBack6: "返回主页"
         },
         ja: {
             brand: "HK WORLDBANK PLATFORM",
             mMainTitle: "HK 統合メインハブ",
             pMainSub: "5大コア機能とエコシステムへのクイックアクセス",
             m1Title: "個人資産ダッシュボード", m1Sub: "リアルタイム残高及びPi資産統合管理",
-            m2Title: "売買・預金", m2Sub: "10大分散型連動網 (중도해지 규정 포함)",
+            m2Title: "売買・預金", m2Sub: "10大分散型連動網 (中途解約規程含む)",
             m3Title: "カスタマー ASI ビーニー", m3Sub: "超知能ASI専任アシスタント・厳格なKYC/KYB",
             m4Title: "ナビゲーター", m4Sub: "ホワイトペーパー・FAQ・3대ポリシー・21カ国法案ハブ",
             m5Title: "YouTube & TikTok", m5Sub: "ライブ放送およびコミュニケーションチャンネル",
@@ -818,14 +836,14 @@
             dashSumTitle: "📈 10大分散型連動網の資産状況",
             dashSumDesc: "バイナンスおよび既存銀行に対抗し、ASIオーケストレーションと厳格なKYC/KYB検証を統合。",
             netMainTitle: "💱 10大分散型連動網 実戦実行",
-            netMainSub: "以下のネットワークをクリックすると중도해지規程が含まれたポップアップが開きます。",
+            netMainSub: "以下のネットワークをクリックすると中途解約規程が含まれたポップアップが開きます。",
             supportTitle: "🤖 カスタマー ASI ビーニー",
             aiWelcome: "こんにちは！超知能ASIビーニーです。中途解約時の元本保証と60カ国語対応でお手伝いします！💜",
             sendBtnText: "送信",
             navHubTitle: "🧭 HK ナビゲーターハブ",
             mediaTitle: "📺 YouTube & TikTok メディア",
-            nHome: "ホーム", nTrading: "取引・網", nSupport: "ASI ビーニー", nNav: "ナビ",
-            btBack1: "メインに戻る", btBack2: "メインに戻る", btBack3: "メインに戻る", btBack4: "メインに戻る", btBack5: "メインに戻る"
+            nHome: "ホーム", nTrading: "取引・網", nSupport: "ASI ビーニー", nNav: "ナビ", nMenu: "メニュー",
+            btBack1: "メインに戻る", btBack2: "メインに戻る", btBack3: "メインに戻る", btBack4: "メインに戻る", btBack5: "メインに戻る", btBack6: "メインに戻る"
         }
     };
 
@@ -858,11 +876,13 @@
         document.getElementById('nTrading').textContent = dict.nTrading;
         document.getElementById('nSupport').textContent = dict.nSupport;
         document.getElementById('nNav').textContent = dict.nNav;
+        document.getElementById('nMenu').textContent = dict.nMenu;
         document.getElementById('btBack1').textContent = dict.btBack1;
         document.getElementById('btBack2').textContent = dict.btBack2;
         document.getElementById('btBack3').textContent = dict.btBack3;
         document.getElementById('btBack4').textContent = dict.btBack4;
         document.getElementById('btBack5').textContent = dict.btBack5;
+        document.getElementById('btBack6').textContent = dict.btBack6;
     }
 
     function switchTab(tabName) {
@@ -889,11 +909,14 @@
         } else if (tabName === 'media') {
             document.getElementById('tab-media').classList.add('active');
             document.getElementById('nav-nav').classList.add('active');
+        } else if (tabName === 'menu') {
+            document.getElementById('tab-menu').classList.add('active');
+            document.getElementById('nav-menu').classList.add('active');
         }
         document.querySelector('.app-content').scrollTop = 0;
     }
 
-    // 10대 연동망별 전용 팝업 데이터 (중도 해지 규정 및 원금 보장 문구 완벽 탑재)
+    // 10대 연동망별 전용 팝업 데이터
     const popupDataConfigs = {
         1: {
             title: "지갑연결",
@@ -1166,4 +1189,3 @@
 
 </body>
 </html>
-
